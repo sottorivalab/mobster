@@ -1,2 +1,3 @@
 # MOBSTER
- Finite Dirichlet Mixture Models with Beta and Pareto mixtures
+
+Model-based subclonal deconvolution from bulk sequencing. The statistical model uses a `K+1`-dimensional Dirichlet mixture model with `K` Beta and one Pareto component. `K` Beta random variables model subclones in the VAF distribution, and the Pareto random variable models a power law tail. The tail is predicted by Population Genetics to describe alleles under neutral evolution, regardless the clonal structure of the tumour. Fits are via moment-matching or MLE, and model selection via several scores (BIC, ICL and reICL, a new reduced-entropy variation to ICL). Integration with sciClone is provided.
