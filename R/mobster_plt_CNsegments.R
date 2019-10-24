@@ -8,8 +8,8 @@
 # hg19 = hg19 %>% select(chr, length, from, to, centromerStart, centromerEnd)
 # hg19$chr[hg19$chr == 'chr23'] = 'chrX'
 # hg19$chr[hg19$chr == 'chr24'] = 'chrY'
-# chr_coordinate_hg19 = hg19
-# save(chr_coordinate_hg19, file = 'data/chr_coordinate_hg19.RData')
+# chr_coordinates_hg19 = hg19
+# save(chr_coordinates_hg19, file = 'data/chr_coordinates_hg19.RData')
 
 
 #' Title
@@ -37,22 +37,22 @@ plt_CNsegments = function(x, sample, chromosomes = paste0('chr', c(1:22, 'X', 'Y
 {
   data('chr_coordinates_hg19', package = 'mobster')
   
-  chr_coordinate_hg19 = chr_coordinate_hg19 %>% filter(chr %in% chromosomes)
+  chr_coordinates_hg19 = chr_coordinates_hg19 %>% filter(chr %in% chromosomes)
 
-  low = min(chr_coordinate_hg19$from)
-  upp = max(chr_coordinate_hg19$to) 
+  low = min(chr_coordinates_hg19$from)
+  upp = max(chr_coordinates_hg19$to) 
   
-  baseplot = ggplot(chr_coordinate_hg19) +
+  baseplot = ggplot(chr_coordinates_hg19) +
     theme_classic() +
     geom_rect(aes(
       xmin = centromerStart, xmax = centromerEnd, ymin = -Inf, ymax = Inf),
       alpha = .3,
       colour = 'gainsboro') +
-    geom_vline(xintercept = chr_coordinate_hg19$from, size = 0.3, colour = 'black') +
-    geom_label(data = chr_coordinate_hg19,
-               aes(x = chr_coordinate_hg19$from,
+    geom_vline(xintercept = chr_coordinates_hg19$from, size = 0.3, colour = 'black') +
+    geom_label(data = chr_coordinates_hg19,
+               aes(x = chr_coordinates_hg19$from,
                    y = -0.5,
-                   label = gsub('chr', '', chr_coordinate_hg19$chr)
+                   label = gsub('chr', '', chr_coordinates_hg19$chr)
                    ),
                hjust = 0, colour = 'white', fill = 'black', size = 3) +
     geom_hline(yintercept = 0, size = 1, colour = 'gainsboro') + 
