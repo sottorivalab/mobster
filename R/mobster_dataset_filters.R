@@ -291,9 +291,9 @@ all_zeroes = function(x)
 break_around_centromers = function(segments, offset = 1e6, relative = TRUE)
 {
   # Get coordinates and offset the centromers by "offset"
-  data('chr_coordinates_hg19', package = 'mobster')
+  data('chr_coordinate_hg19', package = 'mobster')
   
-  chr_coordinates_hg19 = chr_coordinates_hg19 %>% 
+  chr_coordinate_hg19 = chr_coordinate_hg19 %>% 
     mutate(
       centromerStart = centromerStart - offset,
       centromerEnd = centromerEnd + offset)
@@ -301,7 +301,7 @@ break_around_centromers = function(segments, offset = 1e6, relative = TRUE)
   # Work out where the segments map, first rescale them if relative
   if(relative)
   {
-    segments = segments %>% left_join(chr_coordinates_hg19, by = 'chr')
+    segments = segments %>% left_join(chr_coordinate_hg19, by = 'chr')
     segments = segments %>% mutate(from = from.x + from.y, to = from.y + to.x)
     # segments = segments %>% select(-from.x, -to.x, -from.y, -to.y, -centromerStart, -centromerEnd)
   }

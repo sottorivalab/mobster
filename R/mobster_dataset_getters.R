@@ -526,9 +526,9 @@ byLoc = function(x, loc.id, offset_around_centromers) {
     #            to > SEG.cytoband$to[2])
    
     # Get coordinates and offset the centromers by "offset"
-    data('chr_coordinates_hg19', package = 'mobster')
+    data('chr_coordinate_hg19', package = 'mobster')
     
-    chr_coordinates_hg19 = chr_coordinates_hg19 %>% 
+    chr_coordinate_hg19 = chr_coordinate_hg19 %>% 
       mutate(
         centromerStart = centromerStart - offset_around_centromers,
         centromerEnd = centromerEnd + offset_around_centromers
@@ -536,8 +536,8 @@ byLoc = function(x, loc.id, offset_around_centromers) {
       filter(chr == thisSeg$chr[1])
     
     which_muts = which_muts %>%
-      filter(to < chr_coordinates_hg19$centromerStart[1] |
-               from > chr_coordinates_hg19$centromerEnd[1])
+      filter(to < chr_coordinate_hg19$centromerStart[1] |
+               from > chr_coordinate_hg19$centromerEnd[1])
     
     ws_nc = nrow(which_muts)
     pio::pioStr("off centromer", ws_nc, suffix = '\n')

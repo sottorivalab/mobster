@@ -100,10 +100,10 @@ mobster_dataset = function(
   {
     pio::pioStr("Switching to absolute chromosomal coordinates for", 'ref. hg19')
     
-    data('chr_coordinates_hg19', package = 'mobster')
+    data('chr_coordinate_hg19', package = 'mobster')
     
-    starts = chr_coordinates_hg19$from
-    names(starts) = chr_coordinates_hg19$chr
+    starts = chr_coordinate_hg19$from
+    names(starts) = chr_coordinate_hg19$chr
     
     tib_data = tib_data %>% mutate(
       relative.from = from,
