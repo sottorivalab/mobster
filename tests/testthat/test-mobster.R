@@ -1,4 +1,4 @@
-library(mobster)
+
 dataset = random_dataset(
   seed = 123, 
   K_betas = 1,
@@ -13,8 +13,8 @@ fit = mobster_fit(
 test_that("Test dataset with 1 clonal cluster and a tail", {
   expect_true(fit$best$fit.tail)
   expect_equal(fit$best$Kbeta, 1)
-  expect_equal(round(fit$best$pi[["Tail"]], 2), round(dataset$model$pi[["Tail"]]))
-  expect_equal(round(fit$best$pi[["C1"]], 2), round(dataset$model$pi[["C1"]]))
+  expect_equal(round(fit$best$pi[["Tail"]], 2), round(dataset$model$pi[["Tail"]], 2))
+  expect_equal(round(fit$best$pi[["C1"]], 2), round(dataset$model$pi[["C1"]], 2))
 })
 
 dataset = random_dataset(
