@@ -2,9 +2,13 @@ on:
   push:
     branches:
       - master
+      - tests
+      - development
   pull_request:
     branches:
       - master
+      - tests 
+      - development
 
 name: R-CMD-check
 
