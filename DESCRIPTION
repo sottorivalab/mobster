@@ -22,7 +22,9 @@ Imports:
     tidyverse,
     plotly,
     ggpubr,
-    dplyr
+    dplyr,
+    easypar,
+    pio
 Remotes:
   github::caravagn/pio,
   github::caravagn/easypar
