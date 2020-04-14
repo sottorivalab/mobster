@@ -26,6 +26,8 @@ Imports:
     dplyr,
     easypar
 RoxygenNote: 7.0.0
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
