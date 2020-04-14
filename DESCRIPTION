@@ -21,10 +21,11 @@ Imports:
     ggthemes,
     tidyverse,
     plotly,
-    pio,
     ggpubr,
-    dplyr,
-    easypar
+    dplyr
+Remotes:
+  github::caravagn/pio,
+  github::caravagn/easypar
 RoxygenNote: 7.0.0
 Suggests: 
     knitr,
